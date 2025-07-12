@@ -1,0 +1,131 @@
+[gd_scene load_steps=17 format=4 uid="uid://cpodxfdvbrhvr"]
+
+[ext_resource type="Script" uid="uid://b6oqccjrdirn5" path="res://scripts/card_movement.gd" id="1_6u4wf"]
+[ext_resource type="Script" uid="uid://bdxcrooylrjec" path="res://scripts/card_damage.gd" id="2_6u4wf"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_d81rb"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAGAAAAD2AAAAUklGRu4AAABXRUJQVlA4TOIAAAAvf8AXEDegpJEk5tChr+reP6uCFLSNAp2CFwTg3yRKG0mBTp16gP4d/WCpZ/4DgP/fOMWVM7gkJ3DdSLLUgB3BaDPYl8DbN5gEIAPLEVz5x8C17/AfQoroPyO3bSNJp84qf6M7B4wkeW+JYNFa7hDxCEFVU80dArFjBOLt0ODs4MYykNVRBmDmd/iH+o80+NCFxUiS95ad79/i6HeVd5YwzYuD39my4/lafNTHP9Tf0f6RBh+68BhJ8l7eVdIhAsBKmObF4bAT4nQKpJD3b3E8IqgmTcfAYC0PQVVT+oNHTik7")
+size_override = Vector2(128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u4wf"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktuci"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg30u"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy11y"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ligt"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8w5pg"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvopj"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yd6c"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we8pq"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wvaf"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8dfr"]
+atlas = SubResource("PortableCompressedTexture2D_d81rb")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hpf3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u4wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktuci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kg30u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy11y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ligt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8w5pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvopj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yd6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we8pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy11y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wvaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8dfr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d81rb"]
+size = Vector2(12, 8)
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_6u4wf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hpf3o")
+autoplay = "default"
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/thrown_card.aseprite",
+"source_uid": 6025413644186777771
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a8f70324319fb8798f45ddc0de1926b5"
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_6u4wf")
+
+[node name="hitbox" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_d81rb")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_hitbox_area_entered"]

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bin566jjgukpf"]
+
+[ext_resource type="PackedScene" uid="uid://c6s1bkgeo0pll" path="res://scenes/fedora_guy.tscn" id="1_72ix8"]
+[ext_resource type="PackedScene" uid="uid://d4cty7yuw1adn" path="res://scenes/enemy.tscn" id="2_2vj2h"]
+
+[node name="main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="fedora_guy" parent="." instance=ExtResource("1_72ix8")]
+
+[node name="enemy" parent="." instance=ExtResource("2_2vj2h")]
+position = Vector2(128, -3)

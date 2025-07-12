@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cr30xg35c05al"
+path="res://.godot/imported/thrown_card.aseprite-b70c75d976cc0f2565e95d2d9d9f2314.res"
+
+[deps]
+
+source_file="res://assets/thrown_card.aseprite"
+dest_files=["res://.godot/imported/thrown_card.aseprite-b70c75d976cc0f2565e95d2d9d9f2314.res"]
+
+[params]
+
