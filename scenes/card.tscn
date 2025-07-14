@@ -123,6 +123,8 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "a8f70324319fb8798f45ddc0de1926b5"
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("2_6u4wf")
 
 [node name="hitbox" type="CollisionShape2D" parent="Area2D"]
