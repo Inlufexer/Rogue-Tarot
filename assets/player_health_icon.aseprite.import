@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dr06qb3w61qv3"
+path="res://.godot/imported/player_health_icon.aseprite-1a09021d93cfb236fce4f14736b87f63.res"
+
+[deps]
+
+source_file="res://assets/player_health_icon.aseprite"
+dest_files=["res://.godot/imported/player_health_icon.aseprite-1a09021d93cfb236fce4f14736b87f63.res"]
+
+[params]
+
