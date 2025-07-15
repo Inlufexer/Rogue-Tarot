@@ -15,4 +15,4 @@ position = Vector2(99, 89)
 [node name="enemy" parent="." instance=ExtResource("2_2vj2h")]
 position = Vector2(222, 58)
 
-[node name="Control" parent="." instance=ExtResource("3_y0acb")]
+[node name="playtime_ui" parent="." instance=ExtResource("3_y0acb")]
