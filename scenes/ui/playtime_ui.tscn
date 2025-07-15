@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://cijj22ouyw82c"]
+[gd_scene load_steps=2 format=3 uid="uid://cijj22ouyw82c"]
 
-[node name="Control" type="Control"]
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_u76af"]
+size_override = Vector2(16, 16)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -8,13 +13,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 336.0
-offset_bottom = 116.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+offset_right = 56.0
+offset_bottom = 16.0
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="Heart 1" type="TextureRect" parent="Control/HBoxContainer"]
+texture_filter = 1
 layout_mode = 2
+texture = SubResource("PortableCompressedTexture2D_u76af")
+stretch_mode = 5
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -32,3 +39,52 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://assets/player_health_icon.aseprite",
 "source_uid": 8405992733075507494
 }
+metadata/_aseprite_wizard_source_file_hash_ = "6b58ec9ee15b500babd04c6362ccefbe"
+
+[node name="Heart 2" type="TextureRect" parent="Control/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("PortableCompressedTexture2D_u76af")
+stretch_mode = 5
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/player_health_icon.aseprite",
+"source_uid": 8405992733075507494
+}
+metadata/_aseprite_wizard_source_file_hash_ = "6b58ec9ee15b500babd04c6362ccefbe"
+
+[node name="Heart 3" type="TextureRect" parent="Control/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("PortableCompressedTexture2D_u76af")
+stretch_mode = 5
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/player_health_icon.aseprite",
+"source_uid": 8405992733075507494
+}
+metadata/_aseprite_wizard_source_file_hash_ = "6b58ec9ee15b500babd04c6362ccefbe"
