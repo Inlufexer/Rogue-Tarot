@@ -129,7 +129,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk Backward",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 2.0,
@@ -152,7 +152,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walk Forward",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -275,7 +275,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Walking Cycles",
-"speed": 20.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nq7ct"]

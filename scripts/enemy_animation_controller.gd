@@ -21,7 +21,7 @@ func walking():
 	if character_movement_dir.y == 1 and character_movement_dir.x == 0:
 		play("Walk Forward")
 	if character_movement_dir.y == -1 and character_movement_dir.x == 0:
-		play("Walk Backward")
+		play("Walk Backwards")
 		
 	#Handle diagonals
 	
