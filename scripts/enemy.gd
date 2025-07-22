@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+
+const attack_delay = 2
+const  SPEED = 100.0
 var moveDir = Vector2.ZERO
-var player_instance : Node2D  # You can change to your specific player type
+var player_instance : Node2D
+var attacking = false
 const STOP_THRESHOLD = 4.0
 
 func _ready():
@@ -10,7 +13,13 @@ func _ready():
 	player_instance = get_node("/root/main/fedora_guy")
 
 func _physics_process(delta):
-	movement(delta)
+	if (player_instance.position - position).length() < 50:
+		velocity = Vector2.ZERO
+		attacking = true
+	else:
+		movement(delta)
+		attacking = false
+	
 
 func direction():
 	var diff = player_instance.global_position - global_position

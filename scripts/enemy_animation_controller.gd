@@ -1,35 +1,48 @@
-extends AnimatedSprite2D
+extends AnimationPlayer
+var enemy
 
 func _ready():
-	pass
+	enemy = get_parent()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	walking()
+	if enemy.attacking == false:
+		walking()
+	else:
+		attacking()
 
 
 #Handles Walking animation
 func walking():
-	var character_movement_dir = get_parent().moveDir
+	match enemy.moveDir:
+		Vector2(0, 0):
+			stop()
+		Vector2(1, 0):
+			play("walk_right")
+		Vector2(-1, 0):
+			play("walk_left")
+		Vector2(0, 1):
+			play("walk_forward")
+		Vector2(0, -1):
+			play("walk_backwards")
+		Vector2(1, 1):
+			play("walk_right")
+		Vector2(-1, 1):
+			play("walk_left")
+		_:
+			stop()
+
+func attacking():
+	var angle_deg = get_parent().moveDir.angle()
+	while angle_deg < 0:
+		angle_deg += 2 * PI
 	
-	#Cardinal direction walking
-	if character_movement_dir.x == 1 and character_movement_dir.y == 0:
-		play("Walk Right")
-	if character_movement_dir.x == -1 and character_movement_dir.y == 0:
-		play("Walk Left")
-	if character_movement_dir.y == 1 and character_movement_dir.x == 0:
-		play("Walk Forward")
-	if character_movement_dir.y == -1 and character_movement_dir.x == 0:
-		play("Walk Backwards")
-		
-	#Handle diagonals
-	
-	if character_movement_dir.x == 1 and character_movement_dir.y == 1:
-		play("Walk Right")
-	if character_movement_dir.x == -1 and character_movement_dir.y == 1:
-		play("Walk Left")
-	
-	#Handle stopping
-	if character_movement_dir.x == 0 and character_movement_dir.y == 0:
-		stop()
+	if angle_deg >= 1.75 * PI or angle_deg < 0.25 * PI:
+		play("punch_right")
+	elif angle_deg >= 0.25 * PI and angle_deg < 0.75 * PI:
+		play("punch_forward")
+	elif angle_deg >= 0.75 * PI and angle_deg < 1.25 * PI:
+		play("punch_left")
+	elif angle_deg >= 1.25 * PI and angle_deg < 1.75 * PI:
+		play("punch_backwards")

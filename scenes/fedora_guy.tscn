@@ -1,10 +1,10 @@
-[gd_scene load_steps=30 format=4 uid="uid://c6s1bkgeo0pll"]
+[gd_scene load_steps=31 format=4 uid="uid://c6s1bkgeo0pll"]
 
 [ext_resource type="Script" uid="uid://d3r7gs60cjoo4" path="res://scripts/player scripts/character_movement.gd" id="1_goc38"]
 [ext_resource type="Script" uid="uid://b6knvm5ba5rgf" path="res://scripts/player scripts/character_animation_controller.gd" id="2_nq7ct"]
 [ext_resource type="Script" uid="uid://c5gkcjaeuokeh" path="res://scripts/player scripts/shooting_handle.gd" id="3_jaibh"]
 [ext_resource type="PackedScene" uid="uid://ddc7qqe42ueh8" path="res://scenes/components/health_component.tscn" id="4_4ixvr"]
-[ext_resource type="PackedScene" uid="uid://5n1d1jmkmr2x" path="res://scenes/components/hitbox_component.tscn" id="5_qpfff"]
+[ext_resource type="PackedScene" uid="uid://5n1d1jmkmr2x" path="res://scenes/components/hurtbox_component.tscn" id="5_qpfff"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_4ixvr"]
 _data = PackedByteArray("AAADAAUAAAABAAAAoAAAAKAAAAAwBQAAUklGRigFAABXRUJQVlA4TBsFAAAvn8AnEE+gIJIN6rron0APKvypY6ZtG7PrW+oFMgwz07ZNuJQ/gmLoWxoFME0SEBT8H12A5gsI2Tjf0f5/C5BoyHEAOHAUd3Pt0iwtliIeMAg/4PKCvAGNlW4WSx7SQcUPLsp3bcfjMb6jjeg/BLeNHEnyXk7cAu4T7p1OwPFSDqYsEVZyRCrLH5iDpRks42A547lMYBVHJGlGeRUHR2qWYRWHk6e5ZRwBm6WFHKlIUljIwYhSJLCOw4X2TAs5uAYrOXaP6I+ZDqkOMbh485eT32Adx952LOQ4avtCjpD8xfuQTA5/0l02B+qOsXBuXnfo+X5odbDuGHXCvJzQ9x+kO/pVh3T/bRoXjDscP8osDsbq6LGcVIcMOLrd4pvJIdd8f4DiMjuAyeYgYM05wRGt5fmJOEtORIuAyeioaS5Ro9kx2GL9TvUjo0ObjFGWnoBju2uqgylLBLtrpiNSWba73rGDpRnYXdMcLGc8lwkYXM0EZjkitW7KdtcsB0dqlsHumuVw8jRnd01zBGyW7K6JjlQkKQw4/12MKMUCBlcbTHAo8OTsLrtDg4PdNdOxe0R/2Fxlx0QHb/5y8htYXLUN5jn2tsPgajsmOo7abnLV9omOkLw/+ZBsLl9cdocWWlyoO4bS3WuFTaA6OvGAw+6m7z9I3HhOqEx39CuOrpvxUQZdR+PsQqprxDHudnLNd8VRXeJ6vd3uNoc8bvdrNybgfvwoTt1ldAKT2aXm7jdD1fQPitlSzGoycCfVVVOdajI9tjlBy0n9yOjQJmOUpVfvaHdNdTBliWB3zXREKst21zt2sDQDu2uag+XcTGDc9e21dc1yRGrdlO2uWQ6O1CyD3TXL4eRpzu6a5gjYLNldCzmkJDMd3AYWV6oSmOBQDpGc3TXBobwBu2umY/dlh8npET8dmsNbHLzVNjA4d385fdpAcXiLY287xl281VSHH3AcnY7afugupZ8bjDv2NnyGhFQLSWvvlfzF/0QYdjD+KQ7/C5MSJsXpg+YIaqHb39pLmBi2rGFHSL+9V8Im6Do1eGhZqsMUlYkzxPRKBE5zdGsd3Dv8o6z/vKsLoVfrGnYw6C553O5X3Sl9xy2+gcnxdrtrzxOYFOeQK5ucBGxtwOVETGVZLCdqBCyKY+COjk1Ox8U5PeeGGqdJ/cjo0CZjlKUn4NjumupgyhLB7prpiFSW7a537GBpBnbXNAfLt9dzmYDdNcsRqXVTtrtmOThSswx21yyHk6c5u2uaI2CzZHdNdEhJbM4GNtHBmCoELC5ECQgTHMohkrO7Jjq4BnbXVIdH9IfFtX9B9H2HtzsuJ7/BuIu3L8V1dB3e7Gg6VJfaBl2n4thHHQiqq9dXm4NRuwPjH3/x/hem5w41/FpcYdwR8G91f0Z4qnW8hOdC8qo72Rwh/W7vAD2Ht+UCeu9xxKG7x0OvubmWnO4wxPRKBAyGqMDADTsYWsdzDPwo65+hurp3aF12B/ee2dvt3neJ7rzmu9HxuN2vyt2AdVe/WF1GJzCZXcqdxNmTuFziuol+J9UBlWJ1woy6m5BTJuWjAYdKszpXn4DjpWLKEmGlIpXlDyyWZrDQy7fXc9k6j0jSbJ1PcaRmeZ0P5WlumQI2SyslJVkoRkQJCG6xD8vbtd4grNTuEf1K8eYvJ3+s9LZpg4W+3nYs9NN//cX7zwjLlH7Xfq1V2UtIH1UMTPRKsE7O8aMMGFbqdr+CcysFTP/XCFg+tJzUj9bIAQA=")
@@ -274,8 +274,11 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq7ct"]
-size = Vector2(10, 27)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ixvr"]
+size = Vector2(12, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpfff"]
+size = Vector2(12, 26)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_mask = 2
@@ -308,17 +311,22 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "d0110a71b117dcdcaf39dacd8cee24f7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_nq7ct")
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_4ixvr")
 
 [node name="Shooting_Handle" type="Node2D" parent="."]
 script = ExtResource("3_jaibh")
 
+[node name="Timer" type="Timer" parent="Shooting_Handle"]
+wait_time = 0.25
+one_shot = true
+ignore_time_scale = true
+
 [node name="HealthComponent" parent="." instance=ExtResource("4_4ixvr")]
 
-[node name="HitboxComponent" parent="." instance=ExtResource("5_qpfff")]
+[node name="HurtboxComponent" parent="." instance=ExtResource("5_qpfff")]
 collision_mask = 0
 
-[node name="Hitbox" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_nq7ct")
+[node name="hurtbox" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_qpfff")
