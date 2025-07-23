@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 
-const attack_delay = 2
-const  SPEED = 100.0
+const  SPEED = 200.0
 var moveDir = Vector2.ZERO
 var player_instance : Node2D
 var attacking = false
@@ -13,12 +12,9 @@ func _ready():
 	player_instance = get_node("/root/main/fedora_guy")
 
 func _physics_process(delta):
-	if (player_instance.position - position).length() < 50:
-		velocity = Vector2.ZERO
-		attacking = true
-	else:
+	
+	if attacking == false:
 		movement(delta)
-		attacking = false
 	
 
 func direction():
@@ -37,3 +33,15 @@ func direction():
 func movement(d):
 	direction()
 	move_and_collide(moveDir.normalized() * SPEED * d)
+
+
+
+
+
+func _on_player_detection_area_entered(_area: Area2D) -> void:
+	attacking = true
+	velocity = Vector2.ZERO
+
+
+func _on_player_detection_area_exited(_area: Area2D) -> void:
+	attacking = false

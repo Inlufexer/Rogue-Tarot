@@ -4,16 +4,16 @@ var attack_damage = 1
 var knockback_force = 100
 
 
-func _on_hitbox_area_entered(area):
+
+
+func _on_area_entered(area: Area2D) -> void:
 	if area is HurtboxComponent:
-		var hitbox : HurtboxComponent = area
+		var hurtbox : HurtboxComponent = area
 		
 		var attack = Attack.new()
 		attack.attack_damage = attack_damage
 		attack.knockback_force = knockback_force
 		attack.attack_position = global_position
 		
-		hitbox.damage(attack)
-		
-		get_parent().queue_free()
-	
+		hurtbox.damage(attack)
+		print("punch")

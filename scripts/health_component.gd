@@ -15,3 +15,4 @@ func damage(attack: Attack):
 		get_parent().queue_free()
 	
 	emit_signal("health_changed", health)
+	print(health)

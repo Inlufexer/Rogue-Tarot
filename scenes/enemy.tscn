@@ -1,9 +1,10 @@
-[gd_scene load_steps=60 format=4 uid="uid://d4cty7yuw1adn"]
+[gd_scene load_steps=62 format=4 uid="uid://d4cty7yuw1adn"]
 
 [ext_resource type="Script" uid="uid://dv8eoay5seqha" path="res://scripts/enemy.gd" id="1_4ra3w"]
 [ext_resource type="PackedScene" uid="uid://ddc7qqe42ueh8" path="res://scenes/components/health_component.tscn" id="3_5uy6h"]
 [ext_resource type="Script" uid="uid://xurq1qj70ndg" path="res://scripts/enemy_animation_controller.gd" id="4_5uy6h"]
 [ext_resource type="PackedScene" uid="uid://5n1d1jmkmr2x" path="res://scenes/components/hurtbox_component.tscn" id="4_c4w8v"]
+[ext_resource type="Script" uid="uid://do7xiql0vni38" path="res://scripts/enemy_hitbox.gd" id="5_c4w8v"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_5uy6h"]
 _data = PackedByteArray("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")
@@ -888,6 +889,9 @@ size = Vector2(12, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
 size = Vector2(14, 30)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8i8w"]
+size = Vector2(19, 14)
+
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -897,6 +901,7 @@ script = ExtResource("1_4ra3w")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_5uy6h")
 animation = &"Punch Backwards"
+frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -937,7 +942,19 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_xwavj")
 
 [node name="hitbox_area" type="Area2D" parent="."]
+collision_layer = 2
+script = ExtResource("5_c4w8v")
 
 [node name="hitbox" type="CollisionShape2D" parent="hitbox_area"]
 position = Vector2(-8.25, 2)
 shape = SubResource("RectangleShape2D_5uy6h")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("RectangleShape2D_w8i8w")
+
+[connection signal="area_entered" from="hitbox_area" to="hitbox_area" method="_on_area_entered"]
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
+[connection signal="area_exited" from="PlayerDetection" to="." method="_on_player_detection_area_exited"]
