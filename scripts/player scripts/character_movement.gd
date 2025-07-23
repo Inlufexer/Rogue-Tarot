@@ -6,7 +6,7 @@ var moveDir = Vector2.ZERO
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	update_moveDir()
 	apply_movement()
 

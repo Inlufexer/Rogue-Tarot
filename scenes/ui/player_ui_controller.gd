@@ -4,7 +4,7 @@ var player_instance : Node2D
 func _ready():
 	player_instance = get_node("/root/main/fedora_guy")
 
-func _player_health_change(current_health):
+func player_health_change(current_health):
 	update_hearts(current_health)
 
 func update_hearts(current_health):

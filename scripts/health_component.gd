@@ -4,6 +4,8 @@ class_name HealthComponent
 @export var MAX_HEALTH := 3
 var health : int
 
+signal health_changed(current_health)
+
 var knockback_velocity = Vector2.ZERO
 const KNOCKBACK_DECAY = 800.0
 var stun_timer = 0.0
@@ -32,9 +34,11 @@ func damage(attack: Attack):
 	health -= attack.attack_damage
 	
 	if health <= 0:
-		get_parent().queue_free()
+		get_parent().call_deferred("queue_free")
 	
 	var dir = (get_parent().global_position - attack.attack_position).normalized()
 	knockback_velocity = dir * attack.knockback_force
 	
 	stun_timer = attack.stun_time
+	
+	emit_signal("health_changed", health)

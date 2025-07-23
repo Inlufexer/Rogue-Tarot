@@ -11,9 +11,10 @@ func _ready():
 	# Replace the path with the actual path to your player node in the scene
 	player_instance = get_node("/root/main/fedora_guy")
 
-func _physics_process(delta):
-	if attacking == false:
-		movement()
+func _physics_process(_delta):
+	if player_instance != null:
+		if attacking == false:
+			movement()
 	
 
 func direction():
