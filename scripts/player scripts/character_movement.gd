@@ -5,11 +5,13 @@ const SPEED = 150.0
 var moveDir = Vector2.ZERO
 
 
+
 func _physics_process(delta):
-	movement(delta)
+	update_moveDir()
+	apply_movement()
 
 
-func movement(d):
+func update_moveDir():
 	#Cardinal direction movement
 	if Input.is_action_pressed("right"):
 		moveDir.x = 1
@@ -29,4 +31,10 @@ func movement(d):
 	if !Input.is_action_pressed("up") and !Input.is_action_pressed("down"):
 		moveDir.y = 0
 	
-	move_and_collide(moveDir.normalized() * SPEED * d)
+	moveDir = moveDir.normalized()
+
+func apply_movement():
+	velocity.x = moveDir.x * SPEED
+	velocity.y = moveDir.y * SPEED
+	
+	move_and_slide()

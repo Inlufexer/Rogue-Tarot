@@ -615,7 +615,6 @@ size = Vector2(9, 4)
 [sub_resource type="Animation" id="Animation_w8i8w"]
 resource_name = "punch_left"
 length = 0.40001
-loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -664,6 +663,23 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2(-8.25, 2), Vector2(-8, 2), Vector2(-7.5, 2), Vector2(-8.50001, 2)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hitbox_area")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"is_enabled"
+}, {
+"args": [],
+"method": &"is_enabled"
+}]
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nenq2"]

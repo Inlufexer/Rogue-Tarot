@@ -327,6 +327,7 @@ ignore_time_scale = true
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_qpfff")]
 collision_mask = 2
 health_component = NodePath("../HealthComponent")
+is_player = true
 
 [node name="hurtbox" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, 3)
