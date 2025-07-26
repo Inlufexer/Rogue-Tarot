@@ -30,7 +30,7 @@ func handle_shooting():
 	elif angle_deg >= 1.25 * PI and angle_deg < 1.75 * PI:
 		shoot_dir = Vector2.UP
 
-	# Only shoot if input is pressed
+	# Standard Shot
 	if Input.is_action_just_pressed("shoot") and shoot_dir != Vector2.ZERO:
 		shoot(shoot_dir)
 

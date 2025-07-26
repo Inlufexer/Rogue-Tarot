@@ -30,8 +30,7 @@ func walking():
 			play("walk_right")
 		Vector2(-1, 1):
 			play("walk_left")
-		_:
-			stop()
+		
 
 func attacking():
 	var angle_deg = get_parent().moveDir.angle()

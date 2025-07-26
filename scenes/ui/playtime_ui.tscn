@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://cijj22ouyw82c"]
+[gd_scene load_steps=6 format=4 uid="uid://cijj22ouyw82c"]
 
 [ext_resource type="Script" uid="uid://bs1mugfdamskg" path="res://scenes/ui/player_ui_controller.gd" id="1_aetuq"]
 
@@ -13,6 +13,10 @@ size_override = Vector2(16, 16)
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_u76af"]
 _data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAAByAAAAUklGRmoAAABXRUJQVlA4TF0AAAAvD8ADECdAkG0zf5RBTOMSBxISEI75ny1CmG00/BGO4gzuM/8B+A2t0wGDyFbccMUARQEoAAWX5Ps3le4gov9BCwAmkTEzb79SU8+oqIv7S7rryVF8Sb0yf1sAMAkA")
 size_override = Vector2(16, 16)
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_66h7r"]
+_data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAAAyAQAAUklGRioBAABXRUJQVlA4TB0BAAAvL8ALEEegoG0bpvwBdgj+paOobSOm/Dnde08gh+GIBCBc8X+CDaoZDFDmPwCYz4ARIntBpFwX9TeAI9t224al2jeDIdTqKdb43ACGSq2W4IReEa2zvW+S/8NhARH9n4Cq+/ytHlXKb6PieQz1y+jXHH0pf/wvjr7U4F9bu05cmyLbTiPOMhNZr9drkdYQgww7XdM2fW3TGlzsc9GwRtPXYq3aT9xQ5LuKbj1oGK/h2XvC+kWFI/roYZmcOssSeUmecgGeSHJZggwkf1EgOSWnNk5JMtCEpXTkBFsQEZkWeGGHvkQQmZbAiiRPKHDMOWdfQvm3XrLS6/whIQEJNY6GO9yhvkNtq1MxIAEJT8lwzEqvg1pTfRsr5bNu1AMA")
+size_override = Vector2(48, 48)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -101,3 +105,37 @@ metadata/_aseprite_wizard_config_ = {
 "source_uid": 8405992733075507494
 }
 metadata/_aseprite_wizard_source_file_hash_ = "6b58ec9ee15b500babd04c6362ccefbe"
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.825
+anchor_top = 0.989
+anchor_right = 0.825
+anchor_bottom = 0.989
+offset_left = -24.0
+offset_top = -48.02
+offset_right = 24.0
+offset_bottom = -0.0200043
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PortableCompressedTexture2D_66h7r")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/tarot_cards.aseprite",
+"source_uid": 2026095358884134246
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b04ec82fd3fc63f826d9e4a29aa620d5"

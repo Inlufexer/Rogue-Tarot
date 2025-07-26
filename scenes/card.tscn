@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://cpodxfdvbrhvr"]
 
-[ext_resource type="Script" uid="uid://b6oqccjrdirn5" path="res://scripts/card_movement.gd" id="1_6u4wf"]
-[ext_resource type="Script" uid="uid://bdxcrooylrjec" path="res://scripts/card_damage.gd" id="2_6u4wf"]
+[ext_resource type="Script" uid="uid://b6oqccjrdirn5" path="res://scripts/player_scripts/card_movement.gd" id="1_6u4wf"]
+[ext_resource type="Script" uid="uid://bdxcrooylrjec" path="res://scripts/player_scripts/card_damage.gd" id="2_6u4wf"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_d81rb"]
 _data = PackedByteArray("AAADAAUAAAABAAAAgAAAAGAAAAD2AAAAUklGRu4AAABXRUJQVlA4TOIAAAAvf8AXEDegpJEk5tChr+reP6uCFLSNAp2CFwTg3yRKG0mBTp16gP4d/WCpZ/4DgP/fOMWVM7gkJ3DdSLLUgB3BaDPYl8DbN5gEIAPLEVz5x8C17/AfQoroPyO3bSNJp84qf6M7B4wkeW+JYNFa7hDxCEFVU80dArFjBOLt0ODs4MYykNVRBmDmd/iH+o80+NCFxUiS95ad79/i6HeVd5YwzYuD39my4/lafNTHP9Tf0f6RBh+68BhJ8l7eVdIhAsBKmObF4bAT4nQKpJD3b3E8IqgmTcfAYC0PQVVT+oNHTik7")

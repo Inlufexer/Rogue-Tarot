@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://34pq2xty580a"
+path="res://.godot/imported/tarot_cards.aseprite-f8a1b04e0b3187b120cea188a695bf41.res"
+
+[deps]
+
+source_file="res://assets/tarot_cards.aseprite"
+dest_files=["res://.godot/imported/tarot_cards.aseprite-f8a1b04e0b3187b120cea188a695bf41.res"]
+
+[params]
+
