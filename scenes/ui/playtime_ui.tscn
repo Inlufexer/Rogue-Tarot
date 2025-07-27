@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://cijj22ouyw82c"]
+[gd_scene load_steps=8 format=4 uid="uid://cijj22ouyw82c"]
 
 [ext_resource type="Script" uid="uid://bs1mugfdamskg" path="res://scenes/ui/player_ui_controller.gd" id="1_aetuq"]
+[ext_resource type="Shader" uid="uid://dtn5pmej0pmak" path="res://assets/shaders/tarot_card.tres" id="2_fdtk2"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_aetuq"]
 _data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAAByAAAAUklGRmoAAABXRUJQVlA4TF0AAAAvD8ADECdAkG0zf5RBTOMSBxISEI75ny1CmG00/BGO4gzuM/8B+A2t0wGDyFbccMUARQEoAAWX5Ps3le4gov9BCwAmkTEzb79SU8+oqIv7S7rryVF8Sb0yf1sAMAkA")
@@ -13,6 +14,9 @@ size_override = Vector2(16, 16)
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_u76af"]
 _data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAAByAAAAUklGRmoAAABXRUJQVlA4TF0AAAAvD8ADECdAkG0zf5RBTOMSBxISEI75ny1CmG00/BGO4gzuM/8B+A2t0wGDyFbccMUARQEoAAWX5Ps3le4gov9BCwAmkTEzb79SU8+oqIv7S7rryVF8Sb0yf1sAMAkA")
 size_override = Vector2(16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66h7r"]
+shader = ExtResource("2_fdtk2")
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_66h7r"]
 _data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAAAyAQAAUklGRioBAABXRUJQVlA4TB0BAAAvL8ALEEegoG0bpvwBdgj+paOobSOm/Dnde08gh+GIBCBc8X+CDaoZDFDmPwCYz4ARIntBpFwX9TeAI9t224al2jeDIdTqKdb43ACGSq2W4IReEa2zvW+S/8NhARH9n4Cq+/ytHlXKb6PieQz1y+jXHH0pf/wvjr7U4F9bu05cmyLbTiPOMhNZr9drkdYQgww7XdM2fW3TGlzsc9GwRtPXYq3aT9xQ5LuKbj1oGK/h2XvC+kWFI/roYZmcOssSeUmecgGeSHJZggwkf1EgOSWnNk5JMtCEpXTkBFsQEZkWeGGHvkQQmZbAiiRPKHDMOWdfQvm3XrLS6/whIQEJNY6GO9yhvkNtq1MxIAEJT8lwzEqvg1pTfRsr5bNu1AMA")
@@ -108,6 +112,7 @@ metadata/_aseprite_wizard_source_file_hash_ = "6b58ec9ee15b500babd04c6362ccefbe"
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_66h7r")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.825
@@ -122,7 +127,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("PortableCompressedTexture2D_66h7r")
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
+"pending_changes": {
+"source": "res://assets/ui_assets/tarot_cards.aseprite"
+}
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,

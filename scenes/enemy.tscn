@@ -889,7 +889,7 @@ script = ExtResource("1_4ra3w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vab5u")
-animation = &"punch_backwards"
+animation = &"walk_forward"
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }

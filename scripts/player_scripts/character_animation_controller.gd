@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends AnimationPlayer
 
 func _ready():
 	pass
@@ -15,20 +15,20 @@ func walking():
 	
 	#Cardinal direction walking
 	if character_movement_dir.x == 1 and character_movement_dir.y == 0:
-		play("Walk Right")
+		play("walk_right")
 	if character_movement_dir.x == -1 and character_movement_dir.y == 0:
-		play("Walk Left")
+		play("walk_left")
 	if character_movement_dir.y == 1 and character_movement_dir.x == 0:
-		play("Walk Forward")
+		play("walk_forward")
 	if character_movement_dir.y == -1 and character_movement_dir.x == 0:
-		play("Walk Backward")
+		play("walk_backwards")
 		
 	#Handle diagonals
 	
 	if character_movement_dir.x == 1 and character_movement_dir.y == 1:
-		play("Walk Right")
+		play("walk_right")
 	if character_movement_dir.x == -1 and character_movement_dir.y == 1:
-		play("Walk Left")
+		play("walk_left")
 	
 	#Handle stopping
 	if character_movement_dir.x == 0 and character_movement_dir.y == 0:

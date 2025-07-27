@@ -41,3 +41,12 @@ func shoot(direction: Vector2):
 	card_instance.rotation = direction.angle()
 	get_tree().root.add_child(card_instance)
 	timer.start()
+
+
+func _on_tarot_handler_fool_used() -> void:
+	for i in range(10):
+		var card_instance = CARD.instantiate()
+		card_instance.global_position = global_position
+		card_instance.rotation = (randf_range(0, 2*PI))
+		get_tree().root.add_child(card_instance)
+		await get_tree().create_timer(0.1).timeout
