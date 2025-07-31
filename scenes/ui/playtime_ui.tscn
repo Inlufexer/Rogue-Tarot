@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://cijj22ouyw82c"]
+[gd_scene load_steps=13 format=4 uid="uid://cijj22ouyw82c"]
 
-[ext_resource type="Script" uid="uid://bs1mugfdamskg" path="res://scenes/ui/player_ui_controller.gd" id="1_aetuq"]
-[ext_resource type="Shader" uid="uid://dtn5pmej0pmak" path="res://assets/shaders/tarot_card.tres" id="2_fdtk2"]
+[ext_resource type="Script" uid="uid://bs1mugfdamskg" path="res://scripts/player_ui_controller.gd" id="1_aetuq"]
+[ext_resource type="Shader" uid="uid://bcwyy5paotlqn" path="res://assets/shaders/dissolve.gdshader" id="2_66h7r"]
+[ext_resource type="Script" uid="uid://cuso6h0mwg6qu" path="res://scripts/tarot_controller.gd" id="3_310bt"]
+[ext_resource type="Shader" uid="uid://cfu5c2ne5ttbs" path="res://assets/shaders/tarot_card.gdshader" id="4_310bt"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_aetuq"]
 _data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAAByAAAAUklGRmoAAABXRUJQVlA4TF0AAAAvD8ADECdAkG0zf5RBTOMSBxISEI75ny1CmG00/BGO4gzuM/8B+A2t0wGDyFbccMUARQEoAAWX5Ps3le4gov9BCwAmkTEzb79SU8+oqIv7S7rryVF8Sb0yf1sAMAkA")
@@ -15,11 +17,25 @@ size_override = Vector2(16, 16)
 _data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAAByAAAAUklGRmoAAABXRUJQVlA4TF0AAAAvD8ADECdAkG0zf5RBTOMSBxISEI75ny1CmG00/BGO4gzuM/8B+A2t0wGDyFbccMUARQEoAAWX5Ps3le4gov9BCwAmkTEzb79SU8+oqIv7S7rryVF8Sb0yf1sAMAkA")
 size_override = Vector2(16, 16)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_66h7r"]
-shader = ExtResource("2_fdtk2")
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_66h7r"]
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_66h7r"]
-_data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAAAyAQAAUklGRioBAABXRUJQVlA4TB0BAAAvL8ALEEegoG0bpvwBdgj+paOobSOm/Dnde08gh+GIBCBc8X+CDaoZDFDmPwCYz4ARIntBpFwX9TeAI9t224al2jeDIdTqKdb43ACGSq2W4IReEa2zvW+S/8NhARH9n4Cq+/ytHlXKb6PieQz1y+jXHH0pf/wvjr7U4F9bu05cmyLbTiPOMhNZr9drkdYQgww7XdM2fW3TGlzsc9GwRtPXYq3aT9xQ5LuKbj1oGK/h2XvC+kWFI/roYZmcOssSeUmecgGeSHJZggwkf1EgOSWnNk5JMtCEpXTkBFsQEZkWeGGHvkQQmZbAiiRPKHDMOWdfQvm3XrLS6/whIQEJNY6GO9yhvkNtq1MxIAEJT8lwzEqvg1pTfRsr5bNu1AMA")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_310bt"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_66h7r")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_310bt"]
+shader = ExtResource("2_66h7r")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_310bt")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/sprite_pixel_size = Vector2(0, 0)
+shader_parameter/dissolve_tex_size = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fdtk2"]
+shader = ExtResource("4_310bt")
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_310bt"]
+_data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAAD+AAAAUklGRvYAAABXRUJQVlA4TOoAAAAvL8ALEDegEAAaJn+lPEphfzoEghBNdN0QG5BJ29S/pWnYOxsTMAbzH4B5BhNxh7lfAW4DunErV+4JSOnzfAwgegFBRHoLYJ9/7r+DZDJ3HdH/CRja6795HIz/TsP1ROav8WFUb7QTxfdEqnSjw3cjocniyijNxsEzM4uIMBdHTnwcbFvZemUrjpB7ITuEtl4hMV3O4Sjj14Qgh46TUES3knyZaKceInnOtVluoQtQ9QaoALDcAkgAHigBmIDJhwkAEly0cMOVfImZebrBFxrEWyTm6Ra0AkClG+yqqvEWxk9g+HcOxqtt7AA=")
 size_override = Vector2(48, 48)
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -92,7 +108,9 @@ layout_mode = 2
 texture = SubResource("PortableCompressedTexture2D_u76af")
 stretch_mode = 5
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
+"pending_changes": {
+"source": "res://assets/ui_assets/player_health_icon.aseprite"
+}
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
@@ -110,26 +128,38 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "6b58ec9ee15b500babd04c6362ccefbe"
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TarotController" type="Control" parent="Control"]
+material = SubResource("ShaderMaterial_310bt")
+layout_mode = 1
+anchor_left = 0.825
+anchor_top = 1.0
+anchor_right = 0.825
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -55.0
+offset_right = 24.0
+offset_bottom = -7.0
+script = ExtResource("3_310bt")
+
+[node name="TarotCard" type="TextureRect" parent="Control/TarotController"]
 texture_filter = 1
-material = SubResource("ShaderMaterial_66h7r")
+material = SubResource("ShaderMaterial_fdtk2")
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.825
-anchor_top = 0.989
-anchor_right = 0.825
-anchor_bottom = 0.989
+anchor_left = 0.5
+anchor_top = 1.152
+anchor_right = 0.5
+anchor_bottom = 1.152
 offset_left = -24.0
-offset_top = -48.02
+offset_top = -55.296
 offset_right = 24.0
-offset_bottom = -0.0200043
+offset_bottom = -7.29601
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PortableCompressedTexture2D_66h7r")
+scale = Vector2(1, 1.00669)
+texture = SubResource("PortableCompressedTexture2D_310bt")
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {
-"source": "res://assets/ui_assets/tarot_cards.aseprite"
-}
+"pending_changes": {}
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
@@ -142,7 +172,7 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "",
 "slice": "",
-"source": "res://assets/tarot_cards.aseprite",
+"source": "res://assets/ui_assets/tarot_cards.aseprite",
 "source_uid": 2026095358884134246
 }
-metadata/_aseprite_wizard_source_file_hash_ = "b04ec82fd3fc63f826d9e4a29aa620d5"
+metadata/_aseprite_wizard_source_file_hash_ = "0fe21c30ad0965e3a917cca62ce3dd5f"

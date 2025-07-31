@@ -1,6 +1,7 @@
 extends Node
 
 signal fool_used
+signal tarot_used
 
 @onready var card_order = ["The Fool", "Magician", "Tower"]
 @onready var tarot_cards = {
@@ -13,6 +14,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("tarot_ability"):
 		var card_name = card_order[current_index]
 		tarot_cards[card_name].call()
+		emit_signal("tarot_used")
 
 func _use_fool():
 	print(tarot_cards.find_key(Callable(self, "_use_fool")))
