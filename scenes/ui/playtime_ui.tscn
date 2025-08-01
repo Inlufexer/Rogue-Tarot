@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cijj22ouyw82c"]
+[gd_scene load_steps=19 format=4 uid="uid://cijj22ouyw82c"]
 
 [ext_resource type="Script" uid="uid://bs1mugfdamskg" path="res://scripts/player_ui_controller.gd" id="1_aetuq"]
 [ext_resource type="Shader" uid="uid://bcwyy5paotlqn" path="res://assets/shaders/dissolve.gdshader" id="2_66h7r"]
@@ -17,16 +17,14 @@ size_override = Vector2(16, 16)
 _data = PackedByteArray("AAADAAUAAAABAAAAEAAAABAAAAByAAAAUklGRmoAAABXRUJQVlA4TF0AAAAvD8ADECdAkG0zf5RBTOMSBxISEI75ny1CmG00/BGO4gzuM/8B+A2t0wGDyFbccMUARQEoAAWX5Ps3le4gov9BCwAmkTEzb79SU8+oqIv7S7rryVF8Sb0yf1sAMAkA")
 size_override = Vector2(16, 16)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_66h7r"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_310bt"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_310bt"]
-width = 256
-height = 256
-noise = SubResource("FastNoiseLite_66h7r")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5m8tb"]
+noise = SubResource("FastNoiseLite_310bt")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_310bt"]
 shader = ExtResource("2_66h7r")
-shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_310bt")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_5m8tb")
 shader_parameter/dissolve_value = 1.0
 shader_parameter/sprite_pixel_size = Vector2(0, 0)
 shader_parameter/dissolve_tex_size = Vector2(0, 0)
@@ -35,8 +33,58 @@ shader_parameter/dissolve_tex_size = Vector2(0, 0)
 shader = ExtResource("4_310bt")
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_310bt"]
-_data = PackedByteArray("AAADAAUAAAABAAAAMAAAADAAAAD+AAAAUklGRvYAAABXRUJQVlA4TOoAAAAvL8ALEDegEAAaJn+lPEphfzoEghBNdN0QG5BJ29S/pWnYOxsTMAbzH4B5BhNxh7lfAW4DunErV+4JSOnzfAwgegFBRHoLYJ9/7r+DZDJ3HdH/CRja6795HIz/TsP1ROav8WFUb7QTxfdEqnSjw3cjocniyijNxsEzM4uIMBdHTnwcbFvZemUrjpB7ITuEtl4hMV3O4Sjj14Qgh46TUES3knyZaKceInnOtVluoQtQ9QaoALDcAkgAHigBmIDJhwkAEly0cMOVfImZebrBFxrEWyTm6Ra0AkClG+yqqvEWxk9g+HcOxqtt7AA=")
-size_override = Vector2(48, 48)
+_data = PackedByteArray("AAADAAUAAAABAAAAYAAAADAAAACAAQAAUklGRngBAABXRUJQVlA4TGsBAAAvX8ALEEegoG0bpvwBdgj+paOobSOm/Dnde08gh+GIBCBc8X+CDaoZDFDmPwCYz4ARIntBpFwX9TeA49p23Eal2g8IoFs/j7UoILUgZtiAkRXku57A32YO9y3qf8bO0Eb0fwKq8XNS15XyOanrSpmMmmRUPM9I/VJPPc9I/VJfnUipNCt0IHKF6L9CIlQopVKTBSb/G6EZ9eFiegyjzjeXsvQ+hBC8Hy6kb/10cxnd0OWGbrCJK9L0uaa3yVOUAoG63EDBIjtmdqaHeTPV41132DEzRxuaMGl65DKzQA7ZI4UX1YE5MjM7Ex0oB0cWcftC8+NoY4tExWQDHMVELhcL4AgAGxt9A9ACKHHgH6IFsAAWBe7D2NmwAIAWBW782EYbP/JHshzEZ0/O1nrv/cK2jyF7jqYXjOAsB95zNrKztd4vSihNtAWAI13QQUTEmWg/FcmkNBxk0l2K+j9RJWOlTMZK+ayrNc+6OgMA")
+size_override = Vector2(96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m8tb"]
+atlas = SubResource("PortableCompressedTexture2D_310bt")
+region = Rect2(0, 0, 48, 48)
+filter_clip = true
+
+[sub_resource type="Animation" id="Animation_5m8tb"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_310bt"]
+resource_name = "fool"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_5m8tb")]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bui8p"]
+atlas = SubResource("PortableCompressedTexture2D_310bt")
+region = Rect2(48, 0, 48, 48)
+filter_clip = true
+
+[sub_resource type="Animation" id="Animation_bui8p"]
+resource_name = "magician"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_bui8p")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_avdk2"]
+_data = {
+&"RESET": SubResource("Animation_5m8tb"),
+&"the_fool": SubResource("Animation_310bt"),
+&"the_magician": SubResource("Animation_bui8p")
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -157,22 +205,31 @@ offset_bottom = -7.29601
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1, 1.00669)
-texture = SubResource("PortableCompressedTexture2D_310bt")
+texture = SubResource("AtlasTexture_5m8tb")
 metadata/_aseprite_wizard_interface_config_ = {
-"pending_changes": {}
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {},
+"slice_section": false
 }
 metadata/_aseprite_wizard_config_ = {
 "embed_tex": true,
-"i_mode": 1,
+"i_mode": 0,
 "keep_anim_length": false,
 "layers": [],
 "o_ex_p": "",
 "o_folder": "",
 "o_name": "",
 "only_visible": false,
-"player": "",
+"player": "Control/TarotController/TarotCard/AnimationPlayer",
 "slice": "",
 "source": "res://assets/ui_assets/tarot_cards.aseprite",
 "source_uid": 2026095358884134246
 }
 metadata/_aseprite_wizard_source_file_hash_ = "0fe21c30ad0965e3a917cca62ce3dd5f"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/TarotController/TarotCard"]
+libraries = {
+&"": SubResource("AnimationLibrary_avdk2")
+}

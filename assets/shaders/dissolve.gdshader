@@ -7,21 +7,15 @@ uniform vec2 dissolve_tex_size;
 
 void fragment() {
     vec4 main_texture = texture(TEXTURE, UV);
-
     // Calculate pixel position inside the sprite
     vec2 pixel_pos_in_sprite = UV * sprite_pixel_size;
-
     // Snap to pixel grid by flooring pixel position
     vec2 snapped_pixel_pos = floor(pixel_pos_in_sprite);
-
     // Convert snapped pixel position to UV in dissolve texture space
     vec2 noise_uv = snapped_pixel_pos / dissolve_tex_size;
-
     // Sample dissolve noise texture at snapped UV
     vec4 noise_texture = texture(dissolve_texture, noise_uv);
-
     // Apply dissolve alpha mask
-    main_texture.a *= floor(dissolve_value + min(1.0, noise_texture.r));
-
+    main_texture.a *= step(noise_texture.r, dissolve_value);
     COLOR = main_texture;
 }

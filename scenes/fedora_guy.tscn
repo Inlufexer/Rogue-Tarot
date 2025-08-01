@@ -494,3 +494,4 @@ libraries = {
 script = ExtResource("2_nq7ct")
 
 [connection signal="fool_used" from="TarotHandler" to="Shooting_Handle" method="_on_tarot_handler_fool_used"]
+[connection signal="magician_used" from="TarotHandler" to="Shooting_Handle" method="_on_tarot_handler_magician_used"]
