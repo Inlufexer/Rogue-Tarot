@@ -10,9 +10,7 @@ var last_damaged_time := -100.0
 func damage(attack: Attack):
 	if not health_component:
 		return
-
 	var current_time = Time.get_ticks_msec() / 1000.0
-
 	if is_player:
 		if current_time - last_damaged_time < damage_cooldown:
 			print("Damage ignored: cooldown active")

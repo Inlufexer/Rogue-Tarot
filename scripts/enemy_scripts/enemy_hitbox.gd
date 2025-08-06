@@ -3,9 +3,6 @@ extends Area2D
 var attack_damage = 1
 var knockback_force = 100
 
-
-
-
 func _on_area_entered(area: Area2D) -> void:
 	if not monitoring:
 		return  # Skip if hitbox is disabled

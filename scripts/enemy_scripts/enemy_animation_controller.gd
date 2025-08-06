@@ -12,7 +12,6 @@ func _process(_delta):
 	else:
 		attacking()
 
-
 #Handles Walking animation
 func walking():
 	match enemy.moveDir:

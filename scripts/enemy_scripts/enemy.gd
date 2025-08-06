@@ -44,13 +44,6 @@ func movement():
 	velocity.x = moveDir.x * SPEED
 	velocity.y = moveDir.y * SPEED
 	move_and_slide()
-	
-	
-	
-
-
-
-
 
 func _on_player_detection_area_entered(_area: Area2D) -> void:
 	attacking = true
