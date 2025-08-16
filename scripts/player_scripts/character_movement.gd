@@ -25,10 +25,11 @@ func update_moveDir():
 	if Input.is_action_pressed("down"):
 		moveDir.y = 1
 	#Prevent errors from moving in both directions
-	if !Input.is_action_pressed("right") and !Input.is_action_pressed("left"):
+	if (!Input.is_action_pressed("right") and !Input.is_action_pressed("left")) or (Input.is_action_just_released("right") or Input.is_action_just_released("left")):
 		moveDir.x = 0
 	
-	if !Input.is_action_pressed("up") and !Input.is_action_pressed("down"):
+
+	if (!Input.is_action_pressed("up") and !Input.is_action_pressed("down")) or (Input.is_action_just_released("up") or Input.is_action_just_released("down")):
 		moveDir.y = 0
 	
 	moveDir = moveDir.normalized()
