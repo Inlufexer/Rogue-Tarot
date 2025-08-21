@@ -471,7 +471,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qclf"]
-size = Vector2(15, 17)
+size = Vector2(15, 30.75)
 
 [sub_resource type="Animation" id="Animation_8qclf"]
 resource_name = "punch_backwards"
@@ -508,10 +508,10 @@ tracks/2/path = NodePath("hitbox_area/hitbox:shape")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [null, SubResource("RectangleShape2D_8qclf"), null]
+"values": [null, SubResource("RectangleShape2D_8qclf"), SubResource("RectangleShape2D_8qclf"), null]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -520,10 +520,27 @@ tracks/3/path = NodePath("hitbox_area/hitbox:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(-0.5, 0), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hitbox_area")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"is_enabled"
+}, {
+"args": [],
+"method": &"is_enabled"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ipns3"]
@@ -564,7 +581,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2(5.5, 3), Vector2(-0.5, 0), Vector2(-0.5, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -573,10 +590,27 @@ tracks/3/path = NodePath("hitbox_area/hitbox:shape")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [null, SubResource("RectangleShape2D_8qclf"), null]
+"values": [null, SubResource("RectangleShape2D_8qclf"), SubResource("RectangleShape2D_8qclf"), null]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hitbox_area")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"is_enabled"
+}, {
+"args": [],
+"method": &"is_enabled"
+}]
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
@@ -713,6 +747,23 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2(6, 3), Vector2(5.5, 3)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("hitbox_area")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"is_enabled"
+}, {
+"args": [],
+"method": &"is_enabled"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_xwavj"]
@@ -889,7 +940,8 @@ script = ExtResource("1_4ra3w")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vab5u")
-animation = &"walk_forward"
+animation = &"punch_backwards"
+frame = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {
 "source": "res://assets/enemies/mafia_goonie.aseprite"

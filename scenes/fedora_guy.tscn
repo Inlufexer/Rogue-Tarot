@@ -444,7 +444,9 @@ metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": false,
 "output_section": false,
-"pending_changes": {},
+"pending_changes": {
+"source": "res://assets/player/fedora_man.aseprite"
+},
 "slice_section": false
 }
 metadata/_aseprite_wizard_config_ = {
