@@ -1,8 +1,12 @@
 extends Node2D
 
 @onready var timer = $Timer
+@onready var main = get_node("/root/main/")
 const CARD = preload("res://scenes/card.tscn")
 var shoot_dir = Vector2.ZERO
+var card_type = "default_card"
+
+
 
 func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -10,29 +14,49 @@ func _process(_delta: float) -> void:
 		handle_shooting()
 
 func handle_shooting():
-	shoot_dir = Vector2.ZERO
+	var shoot_dir = Vector2.ZERO
+	var aim_vector = Vector2.ZERO
+	var deadzone = 0.2  # ignore tiny stick movement
+	if main.input_type == "controller":
+		# Get right stick input (controller 0 by default)
+		var x = Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)
+		var y = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
+		aim_vector = Vector2(x, y)
 
-	# Vector pointing from player to mouse
-	var aim_vector = (get_global_mouse_position() - global_position).normalized()
-	var angle_deg = aim_vector.angle()
+		# Deadzone check
+		if aim_vector.length() < deadzone:
+			return  # keep last direction
+	else:
+		# Mouse aiming
+		aim_vector = (get_global_mouse_position() - global_position)
 
-	# Normalize angle to 0–360
-	if angle_deg < 0:
-		angle_deg += 2 * PI
+	# Normalize aim vector
+	if aim_vector != Vector2.ZERO:
+		aim_vector = aim_vector.normalized()
+	else:
+		return
 
-	# Determine cardinal direction
-	if angle_deg >= 1.75 * PI or angle_deg < 0.25 * PI:
-		shoot_dir = Vector2.RIGHT
-	elif angle_deg >= 0.25 * PI and angle_deg < 0.75 * PI:
-		shoot_dir = Vector2.DOWN
-	elif angle_deg >= 0.75 * PI and angle_deg < 1.25 * PI:
-		shoot_dir = Vector2.LEFT
-	elif angle_deg >= 1.25 * PI and angle_deg < 1.75 * PI:
-		shoot_dir = Vector2.UP
+	# --- Cardinal Direction Selection ---
+	if abs(aim_vector.x) > abs(aim_vector.y):
+		# Horizontal wins
+		if aim_vector.x > 0:
+			shoot_dir = Vector2.RIGHT
+		else:
+			shoot_dir = Vector2.LEFT
+	else:
+		# Vertical wins
+		if aim_vector.y > 0:
+			shoot_dir = Vector2.DOWN
+		else:
+			shoot_dir = Vector2.UP
+
 
 	# Standard Shot
 	if Input.is_action_just_pressed("shoot") and shoot_dir != Vector2.ZERO:
 		shoot(shoot_dir)
+
+
+
 
 func shoot(direction: Vector2):
 	

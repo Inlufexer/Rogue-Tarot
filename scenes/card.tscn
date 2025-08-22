@@ -1,62 +1,103 @@
-[gd_scene load_steps=17 format=4 uid="uid://cpodxfdvbrhvr"]
+[gd_scene load_steps=32 format=4 uid="uid://cpodxfdvbrhvr"]
 
 [ext_resource type="Script" uid="uid://b6oqccjrdirn5" path="res://scripts/player_scripts/card_movement.gd" id="1_6u4wf"]
 [ext_resource type="Script" uid="uid://bdxcrooylrjec" path="res://scripts/player_scripts/card_damage.gd" id="2_6u4wf"]
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_d81rb"]
-_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAGAAAAD2AAAAUklGRu4AAABXRUJQVlA4TOIAAAAvf8AXEDegpJEk5tChr+reP6uCFLSNAp2CFwTg3yRKG0mBTp16gP4d/WCpZ/4DgP/fOMWVM7gkJ3DdSLLUgB3BaDPYl8DbN5gEIAPLEVz5x8C17/AfQoroPyO3bSNJp84qf6M7B4wkeW+JYNFa7hDxCEFVU80dArFjBOLt0ODs4MYykNVRBmDmd/iH+o80+NCFxUiS95ad79/i6HeVd5YwzYuD39my4/lafNTHP9Tf0f6RBh+68BhJ8l7eVdIhAsBKmObF4bAT4nQKpJD3b3E8IqgmTcfAYC0PQVVT+oNHTik7")
-size_override = Vector2(128, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6u4wf"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_6u4wf"]
+_data = PackedByteArray("AAADAAUAAAABAAAAoAAAAKAAAACOAQAAUklGRoYBAABXRUJQVlA4THoBAAAvn8AnED+gpJEkNnro0FfWJLy0JxOwjK6AiwBqqEVNACRsmIsLXC28zeD8B4DTTzeGpLIb/1UcQE61LY81duA3I3F9hRQwpALhrSBgAffPvSv7F/Hzi99uCET0n5HbNo6k07Rde8snHp9hLTWNJkptek29SuH4/s45b/JeklylFj+m1ML1yt9ML+ocEQHAyahTOSS8j+aLm/aez3H9QL5FwYVu7FpqGk25IwC463vxuSV8heaT7yV/Dit7lVpq9Twrc3znvOVtxPtovuTIB9dvUXChG6/UqQibOs3CXpaaZsiZ0j7CIgIOV/YqpdbqR+whpXCOcARQnMghoRYWoMHmGBPCuBd1miHVTyHOIeE757xtEwN5juu3cDkmvrP1F1LwH904pU5FuS06DdtrQW5BjtBp5LkvZyIHj6JeR+f6Xjzre028Rzn6vjN9/8GNVupUlNumM6U9mXXYPaQUTsPmWAvAAazFUQgUdQE0+ByKtiACDkbfhT7yPgA=")
+size_override = Vector2(160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktuci"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(32, 0, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kg30u"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(64, 0, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sy11y"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(96, 0, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ligt"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(0, 32, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8w5pg"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(32, 32, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvopj"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(64, 32, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yd6c"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(96, 32, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we8pq"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(0, 64, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wvaf"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
-region = Rect2(32, 64, 32, 32)
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u8dfr"]
-atlas = SubResource("PortableCompressedTexture2D_d81rb")
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpf3o"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42b55"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjciw"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
 region = Rect2(64, 64, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_hpf3o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_54seb"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v23hl"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ydx5"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuy1i"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rywyy"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le4ky"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_125j1"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b834i"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07urr"]
+atlas = SubResource("PortableCompressedTexture2D_6u4wf")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l85n3"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6u4wf")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ktuci")
 }, {
@@ -82,29 +123,166 @@ animations = [{
 "texture": SubResource("AtlasTexture_we8pq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sy11y")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_4wvaf")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_6ligt")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_u8dfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpf3o")
 }],
 "loop": true,
-"name": &"default",
-"speed": 30.0
+"name": &"Default Card",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42b55")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjciw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54seb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v23hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ydx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuy1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rywyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le4ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_125j1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v23hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b834i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07urr")
+}],
+"loop": true,
+"name": &"Heavy Card",
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d81rb"]
 size = Vector2(12, 8)
+
+[sub_resource type="Animation" id="Animation_6u4wf"]
+resource_name = "standard_card"
+length = 1.20001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Default Card"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_ktuci"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Default Card"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kg30u"]
+resource_name = "heavy_card"
+length = 1.20001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Heavy Card"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kg30u"]
+_data = {
+&"RESET": SubResource("Animation_ktuci"),
+&"heavy_card": SubResource("Animation_kg30u"),
+&"standard_card": SubResource("Animation_6u4wf")
+}
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_6u4wf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_hpf3o")
-autoplay = "default"
+sprite_frames = SubResource("SpriteFrames_l85n3")
+animation = &"Default Card"
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -117,10 +295,10 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "should_round_fps": true,
 "slice": "",
-"source": "res://assets/thrown_card.aseprite",
-"source_uid": 6025413644186777771
+"source": "res://assets/player/thrown_card.aseprite",
+"source_uid": 5645432801766362969
 }
-metadata/_aseprite_wizard_source_file_hash_ = "a8f70324319fb8798f45ddc0de1926b5"
+metadata/_aseprite_wizard_source_file_hash_ = "4f41a497acc9904b739557269445ce8d"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
@@ -129,5 +307,11 @@ script = ExtResource("2_6u4wf")
 
 [node name="hitbox" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_d81rb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kg30u")
+}
+autoplay = "heavy_card"
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_hitbox_area_entered"]
