@@ -6,7 +6,7 @@ const CARD = preload("res://scenes/card.tscn")
 var shoot_dir = Vector2.ZERO
 var card_type = "default_card"
 
-# Hi Narayan
+
 
 func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
