@@ -12,7 +12,20 @@ func _process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 	if timer.is_stopped():
 		handle_shooting()
+		key_shooting()
 
+func key_shooting():
+	if Input.is_action_just_pressed("shoot_up"):
+		shoot(Vector2.UP)
+	if Input.is_action_just_pressed("shoot_down"):
+		shoot(Vector2.DOWN)
+	if Input.is_action_just_pressed("shoot_left"):
+		shoot(Vector2.LEFT)
+	if Input.is_action_just_pressed("shoot_right"):
+		shoot_dir = Vector2.RIGHT
+		shoot(Vector2.RIGHT)
+	
+	
 func handle_shooting():
 	var shoot_dir = Vector2.ZERO
 	var aim_vector = Vector2.ZERO
@@ -54,7 +67,6 @@ func handle_shooting():
 	# Standard Shot
 	if Input.is_action_just_pressed("shoot") and shoot_dir != Vector2.ZERO:
 		shoot(shoot_dir)
-
 
 
 
