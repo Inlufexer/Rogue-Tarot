@@ -15,6 +15,10 @@ run/main_scene="uid://bin566jjgukpf"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+ScentManager="*res://scripts/pathfinding/ScentManager.gd"
+
 [display]
 
 window/size/viewport_width=320
@@ -81,9 +85,11 @@ tarot_ability={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Enemies"
-2d_physics/layer_3="Player Projectiles"
+2d_physics/layer_1="solid"
+2d_physics/layer_2="object"
+2d_physics/layer_5="player"
+2d_physics/layer_8="player projectile"
+2d_physics/layer_11="enemy"
 
 [rendering]
 

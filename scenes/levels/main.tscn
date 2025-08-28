@@ -8,13 +8,14 @@
 [node name="main" type="Node2D"]
 script = ExtResource("1_j4d2a")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(160, 90)
-
 [node name="fedora_guy" parent="." instance=ExtResource("1_72ix8")]
 position = Vector2(99, 89)
 
+[node name="Camera2D" type="Camera2D" parent="fedora_guy"]
+position = Vector2(-99, -89)
+offset = Vector2(160, 90)
+
+[node name="playtime_ui" parent="fedora_guy/Camera2D" instance=ExtResource("3_y0acb")]
+
 [node name="enemy" parent="." instance=ExtResource("2_2vj2h")]
 position = Vector2(222, 58)
-
-[node name="playtime_ui" parent="." instance=ExtResource("3_y0acb")]

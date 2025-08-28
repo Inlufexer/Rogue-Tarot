@@ -46,8 +46,6 @@ func damage(attack: Attack):
 		# Vertical dominates
 		dir = Vector2(0, sign(dir.y))
 	else:
-		# Within dead zone = tie case
-		# Choose a fallback: here we prefer horizontal
 		dir = Vector2(sign(dir.x), 0)
 	
 	

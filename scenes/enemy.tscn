@@ -1,6 +1,6 @@
-[gd_scene load_steps=61 format=4 uid="uid://d4cty7yuw1adn"]
+[gd_scene load_steps=60 format=4 uid="uid://d4cty7yuw1adn"]
 
-[ext_resource type="Script" uid="uid://dv8eoay5seqha" path="res://scripts/enemy_scripts/enemy.gd" id="1_4ra3w"]
+[ext_resource type="Script" uid="uid://dv8eoay5seqha" path="res://scripts/pathfinding/enemy.gd" id="1_4ra3w"]
 [ext_resource type="PackedScene" uid="uid://ddc7qqe42ueh8" path="res://scenes/components/health_component.tscn" id="3_5uy6h"]
 [ext_resource type="Script" uid="uid://xurq1qj70ndg" path="res://scripts/enemy_scripts/enemy_animation_controller.gd" id="4_5uy6h"]
 [ext_resource type="PackedScene" uid="uid://5n1d1jmkmr2x" path="res://scenes/components/hurtbox_component.tscn" id="4_c4w8v"]
@@ -929,12 +929,9 @@ size = Vector2(12, 3)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
 size = Vector2(14, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8i8w"]
-size = Vector2(19, 14)
-
 [node name="enemy" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 7
+collision_layer = 1024
+collision_mask = 149
 script = ExtResource("1_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -974,8 +971,8 @@ shape = SubResource("RectangleShape2D_g2brh")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_c4w8v")]
 visible = false
-collision_layer = 2
-collision_mask = 5
+collision_layer = 1024
+collision_mask = 128
 health_component = NodePath("../HealthComponent")
 
 [node name="hurtbox" type="CollisionShape2D" parent="HurtboxComponent"]
@@ -983,19 +980,13 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_xwavj")
 
 [node name="hitbox_area" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 1024
+collision_mask = 16
 script = ExtResource("5_c4w8v")
 
 [node name="hitbox" type="CollisionShape2D" parent="hitbox_area"]
 position = Vector2(-8.25, 2)
 
-[node name="PlayerDetection" type="Area2D" parent="."]
-visible = false
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
-shape = SubResource("RectangleShape2D_w8i8w")
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
 
 [connection signal="area_entered" from="hitbox_area" to="hitbox_area" method="_on_area_entered"]
-[connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
-[connection signal="area_exited" from="PlayerDetection" to="." method="_on_player_detection_area_exited"]

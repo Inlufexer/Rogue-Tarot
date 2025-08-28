@@ -7,10 +7,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if enemy.attacking == false:
-		walking()
-	else:
+	if enemy.attacking:
 		attacking()
+	else:
+		walking()
 
 #Handles Walking animation
 func walking():

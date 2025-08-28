@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 		handle_shooting()
 
 func handle_shooting():
-	var shoot_dir = Vector2.ZERO
+	shoot_dir = Vector2.ZERO
 	var aim_vector = Vector2.ZERO
 	var deadzone = 0.2  # ignore tiny stick movement
 	if main.input_type == "controller":

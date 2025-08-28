@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://c6s1bkgeo0pll"]
+[gd_scene load_steps=38 format=4 uid="uid://c6s1bkgeo0pll"]
 
 [ext_resource type="Script" uid="uid://d3r7gs60cjoo4" path="res://scripts/player_scripts/character_movement.gd" id="1_goc38"]
 [ext_resource type="Script" uid="uid://b6knvm5ba5rgf" path="res://scripts/player_scripts/character_animation_controller.gd" id="2_nq7ct"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddc7qqe42ueh8" path="res://scenes/components/health_component.tscn" id="4_4ixvr"]
 [ext_resource type="PackedScene" uid="uid://5n1d1jmkmr2x" path="res://scenes/components/hurtbox_component.tscn" id="5_qpfff"]
 [ext_resource type="Script" uid="uid://b2og1vmaftkev" path="res://scripts/player_scripts/tarot_handler.gd" id="6_qpfff"]
+[ext_resource type="Script" uid="uid://nfradiqqeuuo" path="res://scripts/pathfinding/scent_emitter.gd" id="7_scqqp"]
 
 [sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_qpfff"]
 _data = PackedByteArray("AAADAAUAAAABAAAAoAAAAIAAAAAOBAAAUklGRgYEAABXRUJQVlA4TPoDAAAvn8AfEE+gIJIN6rron0APKvypY6ZtG7PrW+oFMgwz07ZNuJQ/gmLoWxoFME0SEBT8H12A5gsI2Tjf0f5/C5Bo0HFAt3IkMeOk/9p0tL8DaLB1gO4T9BkWFDpjjQBxnM1Gc4M26rgrqfWkNrvjiP6jbds28tSNzRn0SmZM6sqhUiyxJ0eSuvKGOdS6sRuH2n28rzP24khi3aR4cWiSboW9OMiejdw49tgtO3LkKsm7I4fGaFXCDhzgUJkcObTFnhxbiDEcjhz6Pjz8Gd6zH8fWdzhyHK3NkWPP4SGEPS85wp/YseaM2DFXxI61AnbgAiyMi8ihE45JJ2PHfGTyz7+CHeOaw2jeobFz8ghy1q04NDYH07yDrDmMhl3S05LDHsv1ZOwATuhglTWHsJ7Qgd2wtFp5+cxoJTJbTfAdW8hlMBln2D3j4LWUFyNrL+BAsynKhOtVzZjUlUOlWGJPjiR15Q1zqHVjNw61+27GXhxJrJsULw5N0q2wFwfZs5Ebxx675bfLoX3swAE+lsmBA3yMPTm2UHc4cuj71nv249j6DkeOo7U5cuy5tWdHjogdc0Xs8FxEDp1wTDoZO+YjkzrsGNccRvMOjZ2TR5CzbsWhsTmY5h1kzWE06ulyXXPYebk+8opDz+rkYcK66DhZZdkBo+tloWa6QamslMpyAh0Gs+qCGXTbcsorKa9G1l7AgWZTlAnXq1p7uHKoFEvsyZGkrrxhDrVu7Mah9u3uvs7YiyOJdZPixaFJuhX24iB7NnLj2GO37MhhNfPk0JibhB04wKEyOXJoi105QowfDuQIN3Vs4eHPD+8ZOMItHfq+BR1hwnG8sOM77PuorS8ydoC2UTk8hO+Rpx0a/6uO8CNm7Bg7w55BO2wf9qv1bs/QsVAMIcRM0449/wyhCztGTgTfW0zQcctU7kSYkGNY71CGjpGsOSKPOuuYph3K2DHptLHjkp54yfF0uZ7QgcIOVinQMU5YT+jAbhiZLVXMWWTLycQdSaHLxil0WnUvRwRDlMXI2gs40GyKMuF6VTMmdeVQKZbYkyNJXXnDHGrd2I1D7dvdfZ2xF0cS6ybFi0OTdCvsxUH2bOTGscdu2ZPDaubIoU2xR3bgAIfK5MihLfbk2L7GGMaOcGOHvv/68Gc4ho5wGwfsPQ8Dju3FHKP+XnNo7DuwY9ABi/8Xwj7v2OOvUB2/RZ5wPIPkAN0ZO0D5Z+tHZORYiPYYQojYMa7u3Z6xY8REbm1lwo5bJnInTNMO5d6xZ+wYfLs5xnc463jdoTzvMOx8LFfsQF2uj8uOcUlYQdhxssqyY5wZrWfJXUZLCXQwIYfNOJmQw2Ya7gUiWoqsvdAMIgyjJl0E")
@@ -433,7 +434,8 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-collision_mask = 2
+collision_layer = 16
+collision_mask = 1025
 script = ExtResource("1_goc38")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -478,7 +480,8 @@ ignore_time_scale = true
 [node name="HealthComponent" parent="." instance=ExtResource("4_4ixvr")]
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_qpfff")]
-collision_mask = 2
+collision_layer = 16
+collision_mask = 1024
 health_component = NodePath("../HealthComponent")
 is_player = true
 
@@ -494,6 +497,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_scqqp")
 }
 script = ExtResource("2_nq7ct")
+
+[node name="ScentEmitter" type="Node2D" parent="."]
+script = ExtResource("7_scqqp")
 
 [connection signal="fool_used" from="TarotHandler" to="Shooting_Handle" method="_on_tarot_handler_fool_used"]
 [connection signal="magician_used" from="TarotHandler" to="Shooting_Handle" method="_on_tarot_handler_magician_used"]

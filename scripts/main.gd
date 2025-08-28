@@ -1,8 +1,8 @@
 extends Node2D
 @onready var fedora_guy_health = $fedora_guy/HealthComponent
-@onready var playtime_ui = $playtime_ui/Control
+@onready var playtime_ui = $fedora_guy/Camera2D/playtime_ui/Control
 @onready var tarot_player = $fedora_guy/TarotHandler
-@onready var tarot_ui = $playtime_ui/Control/TarotController
+@onready var tarot_ui = $fedora_guy/Camera2D/playtime_ui/Control/TarotController
 var input_type = "keyboard"
 
 func _ready():
