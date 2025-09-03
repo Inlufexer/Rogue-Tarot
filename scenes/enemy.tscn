@@ -988,5 +988,10 @@ script = ExtResource("5_c4w8v")
 position = Vector2(-8.25, 2)
 
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
+path_desired_distance = 3.0
+target_desired_distance = 3.0
+navigation_layers = 2
+path_postprocessing = 1
+debug_enabled = true
 
 [connection signal="area_entered" from="hitbox_area" to="hitbox_area" method="_on_area_entered"]

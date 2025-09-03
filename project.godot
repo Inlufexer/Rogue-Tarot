@@ -15,14 +15,18 @@ run/main_scene="uid://bin566jjgukpf"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[aseprite_importers]
+
+aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe"
+
 [autoload]
 
 ScentManager="*res://scripts/pathfinding/ScentManager.gd"
 
 [display]
 
-window/size/viewport_width=320
-window/size/viewport_height=180
+window/size/viewport_width=512
+window/size/viewport_height=288
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -106,6 +110,7 @@ shoot_right={
 [layer_names]
 
 2d_physics/layer_1="solid"
+2d_navigation/layer_1="Walls"
 2d_physics/layer_2="object"
 2d_physics/layer_5="player"
 2d_physics/layer_8="player projectile"
@@ -113,5 +118,6 @@ shoot_right={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

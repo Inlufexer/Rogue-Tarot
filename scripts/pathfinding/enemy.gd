@@ -10,12 +10,12 @@ enum State {
 	STUNNED # IDK man, we'll reroute it to health component later
 	}
 
-@export var speed: float = 10.0
-@export var chase_speed: float = 70
+@export var speed: float = 50.0
+@export var chase_speed: float = 100
 @export var scent_detection_radius: float = 300
 @export var  scent_age_thershold: float = 4.0 # How old scents must be in seconds to track
 @export var scent_line_of_sight: bool = true # Whether to require LOS to a scent
-@export var sight_distance: float = 250.0 # direct vision distance to player
+@export var sight_distance: float = 100.0 # direct vision distance to player
 @export var lose_sight_time: float = 2.0 # time to start searching after direct chase
 @export var nav_repath_interval: float = 0.4 # time in seconds to repath to player
 
@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			_state_direct_chase(delta)
 			print("Chasing")
 		State.SEARCH:
-			_state_direct_chase(delta)
+			_state_search(delta)
 			print("Searching")
 		State.ATTACKING:
 			_state_attacking(delta)
@@ -91,6 +91,9 @@ func _state_idle(_delta: float) -> void:
 	if _can_see_player():
 		_enter_direct_chase()
 		return
+	else:
+		velocity = Vector2.ZERO
+		moveDir = Vector2.ZERO
 	
 	# Try to detect scents
 	var scent = _find_best_scent()
@@ -139,11 +142,14 @@ func _state_direct_chase(_delta: float) -> void:
 		_last_nav_repath_time = elapsed_time
 	
 	# Get next point from nav_agent and move towards it
-	if nav_agent.is_navigation_finished():
-		var dir = (player_pos - global_position).normalized()
+	if not nav_agent.is_navigation_finished():
+		var next_pos = nav_agent.get_next_path_position()
+		var dir = (next_pos - global_position).normalized()
 		velocity = dir.normalized() * chase_speed
 	else:
 		velocity = Vector2.ZERO
+		_enter_search()
+		return
 	
 	# LOS check
 	if _can_see_player():
@@ -157,6 +163,8 @@ func _state_direct_chase(_delta: float) -> void:
 	else:
 		if nav_agent.is_navigation_finished():
 			velocity = Vector2.ZERO
+			_enter_search()
+			return
 		else:
 			var next_pos = nav_agent.get_next_path_position()
 			var dir = next_pos - global_position
@@ -164,13 +172,13 @@ func _state_direct_chase(_delta: float) -> void:
 				velocity = dir.normalized() * chase_speed
 			else:
 				velocity = Vector2.ZERO
+				_enter_search()
+				return
 
 func _state_search(_delta: float) -> void:
 	var scent = _find_best_scent()
 	if scent:
-		if elapsed_time - _last_nav_repath_time > nav_repath_interval:
-			nav_agent.target_position = scent.pos
-			_last_nav_repath_time = elapsed_time
+		_enter_track_scent()
 		
 		if nav_agent.is_navigation_finished():
 			# Reached the scent, player isn't here: resume idle
@@ -193,9 +201,13 @@ func _try_attack_player():
 	if global_position.distance_to(player_pos) < attack_range:
 		if attacking == false:
 			_enter_attacking()
-	else:
-		_enter_direct_chase()
+	elif state == State.ATTACKING:
 		attacking = false
+		if _can_see_player():
+			_enter_direct_chase()
+		else:
+			attacking = false
+			_enter_search()
 
 func _state_stunned(_delta: float) -> void:
 	# We'll figure it out, see above
@@ -247,9 +259,9 @@ func _can_see_player() -> bool:
 	var player_pos = _get_player_pos()
 	if player_pos == null:
 		return false
-	if global_position.distance_to(player_pos) >sight_distance:
-		return false
-	return _is_visible(player_pos)
+	else :
+		return _is_visible(player_pos)
+	
 
 func _is_visible(world_pos: Vector2) -> bool:
 	var space = get_world_2d().direct_space_state

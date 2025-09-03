@@ -19,3 +19,14 @@ void fragment() {
     main_texture.a *= step(noise_texture.r, dissolve_value);
     COLOR = main_texture;
 }
+
+void vertex() {
+
+	if (VERTEX.y == 0.0){
+		VERTEX += vec2(sin(TIME) * 2.5, 0);
+	}
+
+	if (VERTEX.y > 0.0){
+		VERTEX += -vec2(sin(TIME) * 2.5, 0);
+	}
+}

@@ -8,9 +8,7 @@ func _ready() -> void:
 
 func dissolve():
 	$TarotCard.use_parent_material = true
-
 	print($TarotCard.get_instance_shader_parameter("dissolve_value"))
-	
 	for i in range(0, 100):
 		var t = 1.0 - (i / 100.0)
 		material.set_shader_parameter("dissolve_value", t)
@@ -18,9 +16,10 @@ func dissolve():
 	if player_instance.current_index < player_instance.card_order.size():
 		var card_name = player_instance.card_order[player_instance.current_index]
 		$TarotCard/TarotPlayer.play(card_name)
-		$TarotCard/TarotPlayer.seek(0.0, true) 
+		$TarotCard/TarotPlayer.seek(0.0, true)
 		$TarotCard/TarotPlayer.pause()
 		for i in range(0, 100):
 			var t = i / 100.0
 			material.set_shader_parameter("dissolve_value", t)
 			await get_tree().create_timer(0.01).timeout
+		$TarotCard.use_parent_material = false
