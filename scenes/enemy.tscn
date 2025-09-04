@@ -936,8 +936,9 @@ script = ExtResource("1_4ra3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -14.5)
 sprite_frames = SubResource("SpriteFrames_vab5u")
-animation = &"walk_left"
+animation = &"punch_left"
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {
 "source": "res://assets/enemies/mafia_goonie.aseprite"
@@ -964,13 +965,12 @@ libraries = {
 script = ExtResource("4_5uy6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 14.5)
 shape = SubResource("RectangleShape2D_g2brh")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_5uy6h")]
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("4_c4w8v")]
-visible = false
+position = Vector2(0, -14.5)
 collision_layer = 1024
 collision_mask = 128
 health_component = NodePath("../HealthComponent")
@@ -980,6 +980,7 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_xwavj")
 
 [node name="hitbox_area" type="Area2D" parent="."]
+position = Vector2(0, -14.5)
 collision_layer = 1024
 collision_mask = 16
 script = ExtResource("5_c4w8v")

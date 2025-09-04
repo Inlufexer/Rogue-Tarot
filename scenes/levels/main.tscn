@@ -91,7 +91,7 @@ sources/0 = SubResource("TileSetAtlasSource_b6bv0")
 sources/1 = SubResource("TileSetAtlasSource_ubwgw")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_b6bv0"]
-vertices = PackedVector2Array(502.172, 269.594, 49.4766, 269.594, 49.4766, 50.5703, 502.172, 50.5703)
+vertices = PackedVector2Array(507.172, 274.594, 44.4766, 274.594, 44.4766, 45.5703, 507.172, 45.5703)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(34.4779, 35.5737, 34.4779, 284.59, 517.168, 284.59, 517.168, 35.5737)])
 source_geometry_mode = 1
@@ -122,5 +122,5 @@ position = Vector2(256, 144)
 [node name="playtime_ui" parent="Camera2D" instance=ExtResource("3_y0acb")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-scale = Vector2(0.928131, 0.89954)
+scale = Vector2(0.930484, 0.89954)
 navigation_polygon = SubResource("NavigationPolygon_b6bv0")

@@ -440,6 +440,7 @@ script = ExtResource("1_goc38")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -14.5)
 sprite_frames = SubResource("SpriteFrames_yce0t")
 animation = &"Walking Cycles"
 metadata/_aseprite_wizard_interface_config_ = {
@@ -464,20 +465,10 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "63a92d075a10d6cf28e9ecf433b053c7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 14.5)
 shape = SubResource("RectangleShape2D_4ixvr")
 
-[node name="Shooting_Handle" type="Node2D" parent="."]
-script = ExtResource("3_jaibh")
-
-[node name="Timer" type="Timer" parent="Shooting_Handle"]
-wait_time = 0.25
-one_shot = true
-ignore_time_scale = true
-
-[node name="HealthComponent" parent="." instance=ExtResource("4_4ixvr")]
-
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_qpfff")]
+position = Vector2(0, -14.5)
 collision_layer = 16
 collision_mask = 1024
 health_component = NodePath("../HealthComponent")
@@ -487,17 +478,27 @@ is_player = true
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_qpfff")
 
-[node name="TarotHandler" type="Node" parent="."]
+[node name="TarotHandler" type="Node2D" parent="."]
 script = ExtResource("6_qpfff")
+
+[node name="ScentEmitter" type="Node2D" parent="."]
+script = ExtResource("7_scqqp")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_4ixvr")]
+
+[node name="Shooting_Handle" type="Node2D" parent="."]
+script = ExtResource("3_jaibh")
+
+[node name="Timer" type="Timer" parent="Shooting_Handle"]
+wait_time = 0.25
+one_shot = true
+ignore_time_scale = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_scqqp")
 }
 script = ExtResource("2_nq7ct")
-
-[node name="ScentEmitter" type="Node2D" parent="."]
-script = ExtResource("7_scqqp")
 
 [connection signal="fool_used" from="TarotHandler" to="Shooting_Handle" method="_on_tarot_handler_fool_used"]
 [connection signal="magician_used" from="TarotHandler" to="Shooting_Handle" method="_on_tarot_handler_magician_used"]

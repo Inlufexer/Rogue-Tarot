@@ -21,7 +21,6 @@ enum State {
 
 # nodes
 @onready var nav_agent: NavigationAgent2D = $NavAgent
-@onready var ray_to_player: RayCast2D = $RayToPlayer
 @onready var elapsed_time: float = 0.0
 
 var state: State = State.IDLE
@@ -134,7 +133,7 @@ func _state_direct_chase(_delta: float) -> void:
 	if player_pos == null:
 		state = State.SEARCH
 		return
-	
+
 	# Set nav target periodically
 	if elapsed_time - _last_nav_repath_time > nav_repath_interval:
 		print("Pathing")
