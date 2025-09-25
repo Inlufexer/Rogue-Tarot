@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 enum State {
 	IDLE,
-	PATROL, # Not currently used
 	TRACK_SCENT,
 	DIRECT_CHASE,
 	SEARCH,
@@ -10,7 +9,7 @@ enum State {
 	STUNNED # IDK man, we'll reroute it to health component later
 	}
 
-@export var speed: float = 50.0
+@export var speed: float = 100
 @export var chase_speed: float = 100
 @export var scent_detection_radius: float = 300
 @export var  scent_age_thershold: float = 4.0 # How old scents must be in seconds to track
@@ -36,8 +35,7 @@ var attacking = false
 var _last_seen_player_time: float = -999.0
 var _last_nav_repath_time: float = -999.0
 var _target_scent_pos: Vector2 = Vector2.ZERO
-var _patrol_points: Array = []  # Will use if patrol is implemented
-var _patrol_index: int = 0
+
 
 func _ready() -> void:
 	if not nav_agent.is_navigation_finished():
@@ -45,6 +43,7 @@ func _ready() -> void:
 		var dir = (next_pos - global_position).normalized()
 		velocity = dir * chase_speed
 	nav_agent.path_max_distance = 10000.0
+	nav_agent.velocity_computed.connect(_on_nav_velocity_computed)
 
 func _physics_process(delta: float) -> void:
 
@@ -53,21 +52,14 @@ func _physics_process(delta: float) -> void:
 	match state:
 		State.IDLE:
 			_state_idle(delta)
-			print("Idle")
-		State.PATROL: # Not currently used
-			_state_patrol(delta)
 		State.TRACK_SCENT:
 			_state_track_scent(delta)
-			print("Tracking")
 		State.DIRECT_CHASE:
 			_state_direct_chase(delta)
-			print("Chasing")
 		State.SEARCH:
 			_state_search(delta)
-			print("Searching")
 		State.ATTACKING:
 			_state_attacking(delta)
-			print("Attacking")
 		State.STUNNED:
 			_state_stunned(delta) # See note above
 	
@@ -79,6 +71,9 @@ func _physics_process(delta: float) -> void:
 		moveDir.x = int(round(normalized_vel.x))
 		moveDir.y = int(round(normalized_vel.y))
 
+	var health = get_node("HealthComponent")
+	velocity += health.knockback_velocity
+	_avoid_other_enemies()
 	move_and_slide()
 
 # ------------------------------
@@ -102,10 +97,6 @@ func _state_idle(_delta: float) -> void:
 		return
 	
 	velocity = Vector2.ZERO
-
-func _state_patrol(_delta:float) -> void:
-	# Might add eventually
-	pass
 
 func _state_track_scent(delta:float) -> void:
 	if _can_see_player():
@@ -134,9 +125,9 @@ func _state_direct_chase(_delta: float) -> void:
 		state = State.SEARCH
 		return
 
+
 	# Set nav target periodically
 	if elapsed_time - _last_nav_repath_time > nav_repath_interval:
-		print("Pathing")
 		nav_agent.target_position = player_pos
 		_last_nav_repath_time = elapsed_time
 	
@@ -144,9 +135,9 @@ func _state_direct_chase(_delta: float) -> void:
 	if not nav_agent.is_navigation_finished():
 		var next_pos = nav_agent.get_next_path_position()
 		var dir = (next_pos - global_position).normalized()
-		velocity = dir.normalized() * chase_speed
+		nav_agent.set_velocity(dir * chase_speed)
 	else:
-		velocity = Vector2.ZERO
+		nav_agent.set_velocity(Vector2.ZERO)
 		_enter_search()
 		return
 	
@@ -191,7 +182,6 @@ func _state_attacking(_delta: float) -> void:
 	velocity = Vector2.ZERO
 
 	attacking = true
-	
 
 func _try_attack_player():
 	var player_pos = _get_player_pos()
@@ -220,9 +210,6 @@ func _enter_idle():
 	state = State.IDLE
 	velocity = Vector2.ZERO
 
-func _enter_patrol():
-	state = State.PATROL
-
 func _enter_direct_chase():
 	state = State.DIRECT_CHASE
 	_last_seen_player_time = elapsed_time
@@ -241,9 +228,6 @@ func _enter_attacking() -> void:
 func _enter_stunned():
 	state = State.STUNNED
 
-
-
-
 # ------------------------------
 # Utilities Used
 # ------------------------------
@@ -259,8 +243,7 @@ func _can_see_player() -> bool:
 	if player_pos == null:
 		return false
 	else :
-		return _is_visible(player_pos)
-	
+		return _is_visible(player_pos)	
 
 func _is_visible(world_pos: Vector2) -> bool:
 	var space = get_world_2d().direct_space_state
@@ -282,5 +265,25 @@ func _find_best_scent():
 				return s
 	return null
 
-func _on_nav_velocity_computed(v: Vector2) -> void:
-	pass
+func _on_nav_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
+	move_and_slide()
+
+# ------------------------------
+# Movement Utilities
+# ------------------------------
+
+func _avoid_other_enemies():
+	var separation_force = Vector2.ZERO
+	var separation_distance = 24
+	var separation_strength = 50
+
+	for enemy in get_tree().get_nodes_in_group("Enemies"):
+		if enemy == self:
+			continue
+		var offset = global_position - enemy.global_position
+		var distance = offset.length()
+		if distance < separation_distance and distance > 0:
+			separation_force += offset.normalized() * (separation_strength / distance)
+	
+	velocity += separation_force

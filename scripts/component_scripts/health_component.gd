@@ -20,15 +20,7 @@ func _physics_process(delta):
 		stun_timer -= delta
 
 func apply_knockback(delta):
-	if knockback_velocity.length() > 0:
-		var parent = get_parent()
-		
-		if parent is CharacterBody2D:
-			parent.move_and_collide(knockback_velocity * delta)
-		else:
-			parent.position += knockback_velocity * delta
-		# Reduce knockback over time
-		knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, KNOCKBACK_DECAY * delta)
+	knockback_velocity = knockback_velocity.move_toward(Vector2.ZERO, KNOCKBACK_DECAY * delta)
 	
 func damage(attack: Attack):
 	health -= attack.attack_damage
@@ -37,16 +29,13 @@ func damage(attack: Attack):
 		get_parent().call_deferred("queue_free")
 	
 	var dir = (get_parent().global_position - attack.attack_position).normalized()
-	const EPS := 0.1  # dead zone threshold
-	# Decide if horizontal or vertical wins
-	if abs(dir.x) - abs(dir.y) > EPS:
-		# Horizontal dominates
-		dir = Vector2(sign(dir.x), 0)
-	elif abs(dir.y) - abs(dir.x) > EPS:
-		# Vertical dominates
-		dir = Vector2(0, sign(dir.y))
+	if dir.length() > 0:
+		if abs(dir.x) > abs(dir.y):
+			dir = Vector2(sign(dir.x), 0)
+		else:
+			dir = Vector2(0, sign(dir.y))
 	else:
-		dir = Vector2(sign(dir.x), 0)
+		dir = Vector2.ZERO
 	
 	
 	knockback_velocity = dir * attack.knockback_force

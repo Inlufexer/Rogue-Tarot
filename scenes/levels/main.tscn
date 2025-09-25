@@ -103,7 +103,7 @@ script = ExtResource("1_j4d2a")
 z_index = 1
 position = Vector2(99, 89)
 
-[node name="enemy" parent="." instance=ExtResource("2_2vj2h")]
+[node name="enemy" parent="." groups=["Enemies"] instance=ExtResource("2_2vj2h")]
 z_index = 1
 position = Vector2(416, 144)
 
@@ -124,3 +124,9 @@ position = Vector2(256, 144)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 scale = Vector2(0.930484, 0.89954)
 navigation_polygon = SubResource("NavigationPolygon_b6bv0")
+
+[node name="enemy2" parent="." instance=ExtResource("2_2vj2h")]
+position = Vector2(400, 216)
+
+[node name="enemy3" parent="." instance=ExtResource("2_2vj2h")]
+position = Vector2(344, 72)
