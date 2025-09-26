@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bs1mugfdamskg" path="res://scripts/player_ui_controller.gd" id="1_aetuq"]
 [ext_resource type="Shader" uid="uid://bcwyy5paotlqn" path="res://assets/shaders/dissolve.gdshader" id="2_66h7r"]
-[ext_resource type="Script" uid="uid://cuso6h0mwg6qu" path="res://scripts/tarot_controller.gd" id="3_310bt"]
+[ext_resource type="Script" uid="uid://cuso6h0mwg6qu" path="res://scripts/player_scripts/tarot_controller.gd" id="3_310bt"]
 [ext_resource type="Shader" uid="uid://cfu5c2ne5ttbs" path="res://assets/shaders/tarot_card.gdshader" id="4_310bt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_310bt"]
