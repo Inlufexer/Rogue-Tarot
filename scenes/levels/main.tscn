@@ -127,6 +127,3 @@ navigation_polygon = SubResource("NavigationPolygon_b6bv0")
 
 [node name="enemy2" parent="." instance=ExtResource("2_2vj2h")]
 position = Vector2(400, 216)
-
-[node name="enemy3" parent="." instance=ExtResource("2_2vj2h")]
-position = Vector2(344, 72)
