@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2bx2ot1jeapo"]
+
+[ext_resource type="Script" uid="uid://dh8l8762rncro" path="res://scripts/dungeon_generation/room.gd" id="1_d8ijp"]
+[ext_resource type="Texture2D" uid="uid://yb3tusmpaym4" path="res://assets/icon.svg" id="2_5a6by"]
+[ext_resource type="PackedScene" uid="uid://ch31amkjtrs7l" path="res://scenes/dungeon_generation/door.tscn" id="2_344iu"]
+
+[node name="Sprite2D" type="Sprite2D"]
+self_modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_5a6by")
+script = ExtResource("1_d8ijp")
+_door_scene = ExtResource("2_344iu")
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = 1

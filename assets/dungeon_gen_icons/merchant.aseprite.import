@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bmh4w6xfudn0r"
+path="res://.godot/imported/merchant.aseprite-13fb4e9e34b8dadc1812247eeb860007.res"
+
+[deps]
+
+source_file="res://assets/dungeon_gen_icons/merchant.aseprite"
+dest_files=["res://.godot/imported/merchant.aseprite-13fb4e9e34b8dadc1812247eeb860007.res"]
+
+[params]
+

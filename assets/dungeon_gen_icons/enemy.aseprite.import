@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d2cc4v0gjew12"
+path="res://.godot/imported/enemy.aseprite-5accbd72f3eb068dc300a4ae6da3c87e.res"
+
+[deps]
+
+source_file="res://assets/dungeon_gen_icons/enemy.aseprite"
+dest_files=["res://.godot/imported/enemy.aseprite-5accbd72f3eb068dc300a4ae6da3c87e.res"]
+
+[params]
+

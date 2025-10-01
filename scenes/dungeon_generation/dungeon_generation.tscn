@@ -1,0 +1,19 @@
+[gd_scene load_steps=11 format=3 uid="uid://ct00dwfoq6h21"]
+
+[ext_resource type="Script" uid="uid://c00ii630b3juj" path="res://scripts/dungeon_generation/dungeon_generation.gd" id="1_mnju3"]
+[ext_resource type="PackedScene" uid="uid://d2bx2ot1jeapo" path="res://scenes/dungeon_generation/room.tscn" id="2_xygm1"]
+[ext_resource type="Texture2D" uid="uid://cfww575oaafh8" path="res://assets/dungeon_gen_icons/entrance.png" id="3_hv4vf"]
+[ext_resource type="Texture2D" uid="uid://bfb4epl15cnhh" path="res://assets/dungeon_gen_icons/stairs.png" id="4_1rluj"]
+[ext_resource type="Texture2D" uid="uid://1tyip8pakiio" path="res://assets/dungeon_gen_icons/enemy.png" id="5_xrcq0"]
+[ext_resource type="Texture2D" uid="uid://edbbryoljke8" path="res://assets/dungeon_gen_icons/treasure.png" id="6_vyyuc"]
+[ext_resource type="Texture2D" uid="uid://b5p6vou8cbj5n" path="res://assets/dungeon_gen_icons/merchant.png" id="7_1yjlb"]
+[ext_resource type="Texture2D" uid="uid://cyw0farmb5wug" path="res://assets/dungeon_gen_icons/camp.png" id="8_ek8sy"]
+[ext_resource type="Texture2D" uid="uid://34y8bux4ex2d" path="res://assets/dungeon_gen_icons/boss.png" id="9_nic01"]
+[ext_resource type="Texture2D" uid="uid://cynmgbu4a8q4j" path="res://assets/dungeon_gen_icons/random.png" id="10_kgns0"]
+
+[node name="DungeonGenerator" type="Node2D"]
+script = ExtResource("1_mnju3")
+_room_scene = ExtResource("2_xygm1")
+_room_icons = Array[Texture2D]([null, ExtResource("3_hv4vf"), ExtResource("4_1rluj"), ExtResource("5_xrcq0"), ExtResource("6_vyyuc"), ExtResource("7_1yjlb"), ExtResource("8_ek8sy"), ExtResource("9_nic01"), ExtResource("10_kgns0")])
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ey66ntfg1ha7"
+path="res://.godot/imported/random.aseprite-da8f218abb498a1fb83490dc4a662e88.res"
+
+[deps]
+
+source_file="res://assets/dungeon_gen_icons/random.aseprite"
+dest_files=["res://.godot/imported/random.aseprite-da8f218abb498a1fb83490dc4a662e88.res"]
+
+[params]
+

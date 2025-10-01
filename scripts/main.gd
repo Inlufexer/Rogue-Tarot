@@ -17,4 +17,3 @@ func _unhandled_input(event):
 			else:
 				if input_type == "controller":
 					input_type = "keyboard"
-			
